@@ -1,0 +1,16 @@
+# Claude Code local settings (machine-specific)
+.claude/settings.local.json
+
+# Claude Code credentials (must never be committed)
+.claude/.credentials.json
+
+# Claude Code session/project data
+.claude/projects/
+.claude/statsig/
+
+# Claude Code MCP config (may contain API keys)
+.claude.json
+
+# OS files
+.DS_Store
+Thumbs.db

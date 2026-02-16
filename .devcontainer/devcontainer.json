@@ -1,0 +1,41 @@
+{
+  "name": "Claude Code Dev Container",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+
+  "features": {
+    "ghcr.io/anthropics/devcontainer-features/claude-code:latest": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+
+  // Shared named volumes - persist across ALL containers on this machine
+  "mounts": [
+    {
+      "source": "claude-code-home",
+      "target": "/home/vscode/.claude",
+      "type": "volume"
+    },
+    {
+      "source": "claude-code-shell-history",
+      "target": "/home/vscode/.shell_history",
+      "type": "volume"
+    }
+  ],
+
+  "remoteUser": "vscode",
+
+  "onCreateCommand": {
+    "fix-permissions": "sudo chown -R vscode:vscode /home/vscode/.claude /home/vscode/.shell_history"
+  },
+
+  "postCreateCommand": {
+    "setup": "bash .devcontainer/setup.sh"
+  },
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "anthropic.claude-code"
+      ]
+    }
+  }
+}
