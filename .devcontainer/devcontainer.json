@@ -1,11 +1,6 @@
 {
   "name": "Claude Code Dev Container",
-  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
-
-  "features": {
-    "ghcr.io/anthropics/devcontainer-features/claude-code:latest": {},
-    "ghcr.io/devcontainers/features/github-cli:1": {}
-  },
+  "image": "ghcr.io/aspinall/devcontainer-base-image:latest",
 
   // Shared named volumes - persist across ALL containers on this machine
   "mounts": [

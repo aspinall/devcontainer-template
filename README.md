@@ -35,13 +35,11 @@ These are **shared named volumes** — the same volumes are mounted into every c
 
 ### Adding Dev Container Features
 
-Add features to `.devcontainer/devcontainer.json`:
+Claude Code and GitHub CLI are pre-installed in the base image. Add additional features to `.devcontainer/devcontainer.json`:
 
 ```jsonc
 "features": {
-    "ghcr.io/anthropics/devcontainer-features/claude-code:latest": {},
-    "ghcr.io/devcontainers/features/github-cli:1": {},
-    "ghcr.io/devcontainers/features/node:1": {},       // add your own
+    "ghcr.io/devcontainers/features/node:1": {},
     "ghcr.io/devcontainers/features/python:1": {}
 }
 ```
@@ -97,7 +95,7 @@ Ensure Docker Desktop is running and you have the [Dev Containers extension](htt
 
 ## What's Included
 
-- **Claude Code** — Anthropic's CLI tool, installed via dev container feature
+- **Claude Code** — Anthropic's CLI tool, pre-installed in the base image
 - **GitHub CLI** (`gh`) — for PR workflows and GitHub API access
 - **Claude Code VS Code extension** — IDE integration
 - **Persistent volumes** — credentials and shell history survive rebuilds
