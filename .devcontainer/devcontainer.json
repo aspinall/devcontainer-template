@@ -1,26 +1,9 @@
 {
   "name": "Claude Code Dev Container",
-  "image": "ghcr.io/aspinall/devcontainer-base-image:latest",
-
-  // Shared named volumes - persist across ALL containers on this machine
-  "mounts": [
-    {
-      "source": "claude-code-home",
-      "target": "/home/vscode/.claude",
-      "type": "volume"
-    },
-    {
-      "source": "claude-code-shell-history",
-      "target": "/home/vscode/.shell_history",
-      "type": "volume"
-    }
-  ],
-
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "claude-code",
+  "workspaceFolder": "/workspace",
   "remoteUser": "vscode",
-
-  "onCreateCommand": {
-    "fix-permissions": "sudo chown -R vscode:vscode /home/vscode/.claude /home/vscode/.shell_history"
-  },
 
   "postCreateCommand": {
     "setup": "bash .devcontainer/setup.sh"

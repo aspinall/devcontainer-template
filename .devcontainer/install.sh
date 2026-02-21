@@ -33,15 +33,21 @@ if [ ! -d "$SRCDIR" ]; then
 fi
 
 # --- Install files ---
-FILES=(
-    ".devcontainer/devcontainer.json"
+# Template-owned files: always overwritten on update
+TEMPLATE_FILES=(
+    ".devcontainer/docker-compose.yml"
     ".devcontainer/setup.sh"
     ".devcontainer/install.sh"
 )
 
+# User-owned files: only created if missing, never overwritten
+USER_FILES=(
+    ".devcontainer/devcontainer.json"
+)
+
 mkdir -p .devcontainer
 
-for file in "${FILES[@]}"; do
+for file in "${TEMPLATE_FILES[@]}"; do
     if [ ! -f "$file" ]; then
         status="Installing"
     elif diff -q "$file" "$SRCDIR/$file" &>/dev/null; then
@@ -52,6 +58,16 @@ for file in "${FILES[@]}"; do
     printf "  %-12s %s\n" "$status" "$file"
     if [ "$status" != "Unchanged" ]; then
         cp "$SRCDIR/$file" "$file"
+    fi
+done
+
+for file in "${USER_FILES[@]}"; do
+    if [ ! -f "$file" ]; then
+        status="Installing"
+        printf "  %-12s %s\n" "$status" "$file"
+        cp "$SRCDIR/$file" "$file"
+    else
+        printf "  %-12s %s (user-managed)\n" "Skipping" "$file"
     fi
 done
 

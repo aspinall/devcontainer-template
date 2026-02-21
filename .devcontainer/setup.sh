@@ -4,6 +4,9 @@
 
 set -e
 
+# Fix volume permissions (moved from onCreateCommand)
+sudo chown -R vscode:vscode /home/vscode/.claude /home/vscode/.shell_history
+
 HISTORY_DIR="/home/vscode/.shell_history"
 MARKER="# claude-devcontainer-history"
 
