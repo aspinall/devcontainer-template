@@ -38,6 +38,7 @@ TEMPLATE_FILES=(
     ".devcontainer/docker-compose.yml"
     ".devcontainer/setup.sh"
     ".devcontainer/install.sh"
+    ".devcontainer/install.ps1"
 )
 
 # User-owned files: only created if missing, never overwritten

@@ -10,6 +10,12 @@ Run this from your project directory (new or existing):
 curl -fsSL https://raw.githubusercontent.com/aspinall/devcontainer-template/main/.devcontainer/install.sh | bash
 ```
 
+On Windows (PowerShell):
+
+```powershell
+irm https://raw.githubusercontent.com/aspinall/devcontainer-template/main/.devcontainer/install.ps1 | iex
+```
+
 Then open in VS Code and select **"Reopen in Container"**. On first use, run `claude login` to authenticate.
 
 ## Update
@@ -18,6 +24,12 @@ Re-run the install script to pull the latest version:
 
 ```bash
 bash .devcontainer/install.sh
+```
+
+On Windows (PowerShell):
+
+```powershell
+& .devcontainer/install.ps1
 ```
 
 It shows per-file status (`Installing`, `Updating`, or `Unchanged`) so you can see what changed.
