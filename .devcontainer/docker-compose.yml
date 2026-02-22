@@ -1,0 +1,12 @@
+services:
+  claude-code:
+    image: ghcr.io/aspinall/devcontainer-base-image:latest
+    volumes:
+      - ..:/workspace:cached
+      - claude-code-home:/home/vscode/.claude
+      - claude-code-shell-history:/home/vscode/.shell_history
+    command: sleep infinity
+
+volumes:
+  claude-code-home:
+  claude-code-shell-history:
