@@ -9,4 +9,6 @@ services:
 
 volumes:
   claude-code-home:
+    name: claude-code-home
   claude-code-shell-history:
+    name: claude-code-shell-history
